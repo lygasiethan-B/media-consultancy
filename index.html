@@ -183,6 +183,8 @@
             gap: 0.5rem;
             position: relative;
             overflow: hidden;
+            border: none;
+            cursor: pointer;
         }
         
         .btn-primary {
@@ -637,6 +639,101 @@
             font-size: 1.2rem;
         }
         
+        /* FAQ Modal Styles */
+        .faq-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .faq-modal-content {
+            background: linear-gradient(145deg, var(--netflix-dark), var(--netflix-black));
+            margin: 5% auto;
+            padding: 2.5rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 80vh; /* ADDED: Limit height */
+            overflow-y: auto; /* ADDED: Enable scrolling */
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        /* ADDED: Custom scrollbar for FAQ modal */
+        .faq-modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .faq-modal-content::-webkit-scrollbar-track {
+            background: var(--netflix-gray);
+            border-radius: 4px;
+        }
+
+        .faq-modal-content::-webkit-scrollbar-thumb {
+            background: var(--brand-purple);
+            border-radius: 4px;
+        }
+
+        .faq-modal-content::-webkit-scrollbar-thumb:hover {
+            background: var(--brand-pink);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+        }
+
+        .close-modal:hover {
+            color: var(--brand-pink);
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--brand-pink);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.5rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
@@ -673,6 +770,11 @@
             .trust-badges {
                 flex-direction: column;
                 gap: 1rem;
+            }
+
+            .faq-modal-content {
+                margin: 10% auto;
+                padding: 1.5rem;
             }
         }
         
@@ -715,7 +817,8 @@
             <div class="hero-logo">📰</div>
             <h1 class="hero-title">BRENDA AWORI</h1>
             <p class="hero-tagline">Premium Media Consultant & Storytelling Expert</p>
-            <p class="hero-description">Amplifying East African stories through strategic media coordination, professional documentation, and compelling storytelling for global impact.</p>
+            <!-- UPDATED HERO PARAGRAPH -->
+            <p class="hero-description">I help your voices reach the world. I take your important work and turn it into stories that get noticed on major news sites, social media, and beyond. Let's make sure your project is seen and heard.</p>
             
             <div class="trust-badges">
                 <div class="trust-badge">
@@ -724,7 +827,7 @@
                 </div>
                 <div class="trust-badge">
                     <span style="color: var(--brand-pink);">🏆</span>
-                    <span>Daily Monitor Publications</span>
+                    <span>East African Publications</span>
                 </div>
                 <div class="trust-badge">
                     <span style="color: var(--brand-pink);">💼</span>
@@ -828,7 +931,7 @@
                         <li>Media-ready content packages</li>
                     </ul>
                     
-                    <div class="price">25,000 UGX/hr</div>
+                    <div class="price">30,000 UGX/hr</div>
                     <p class="payment-note">Photography services</p>
                     <a href="#contact" class="btn btn-primary" style="display: block; text-align: center; width: 100%;">Schedule Documentation</a>
                 </div>
@@ -901,61 +1004,56 @@
         </div>
         
         <div class="portfolio-carousel">
-            <!-- Africa News Feature -->
-            <div class="portfolio-item">
-                <iframe src="https://www.youtube.com/embed/AAz1ypF_Mhg" title="Uganda Hello Hub - Africa News Feature" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- UPDATED: Nile Post Feature -->
+            <a href="https://nilepost.co.ug/business/264145/264145" target="_blank" class="portfolio-item" style="text-decoration: none;">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-purple), var(--brand-blue)); display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center; padding: 1rem;">
+                        <h3 style="margin-bottom: 0.5rem; color: white;">Nile Post Feature</h3>
+                        <p style="color: white;">Karis Medical opens First Community Health Centre in Kyanja</p>
+                    </div>
+                </div>
                 <div class="portfolio-overlay">
-                    <h3 class="portfolio-title">Hello Hub Uganda - Africa News</h3>
+                    <h3 class="portfolio-title">Nile Post Business</h3>
                     <div class="portfolio-metrics">
-                        <span class="portfolio-metric">International coverage</span>
+                        <span class="portfolio-metric">National News</span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- UPDATED: New Vision Feature -->
+            <a href="https://www.newvision.co.ug/category/business/local-investors-urge-govt-on-progressive-taxa-NV_212432" target="_blank" class="portfolio-item" style="text-decoration: none;">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-blue), var(--brand-pink)); display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center; padding: 1rem;">
+                        <h3 style="margin-bottom: 0.5rem; color: white;">New Vision Feature</h3>
+                        <p style="color: white;">Local Investors urge gov't on progressive taxation system</p>
+                    </div>
+                </div>
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">New Vision Business</h3>
+                    <div class="portfolio-metrics">
+                        <span class="portfolio-metric">National Coverage</span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- UPDATED: YouTube - SEATINI Uganda -->
+            <div class="portfolio-item">
+                <iframe src="https://www.youtube.com/embed/vmMy87_TDIc" title="SEATINI Uganda Mentorship Clinic" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">SEATINI Uganda Mentorship</h3>
+                    <div class="portfolio-metrics">
+                        <span class="portfolio-metric">Event Documentation</span>
                     </div>
                 </div>
             </div>
             
-            <!-- Daily Monitor Feature -->
-            <a href="https://www.monitor.co.ug/uganda/business/technology/empowering-female-engineers-while-bridging-the-digital-divide-4377476" target="_blank" class="portfolio-item">
-                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-purple), var(--brand-blue)); display: flex; align-items: center; justify-content: center;">
-                    <div style="text-align: center; padding: 1rem;">
-                        <h3 style="margin-bottom: 0.5rem;">Daily Monitor Feature</h3>
-                        <p>Empowering Female Engineers & Bridging Digital Divide</p>
-                    </div>
-                </div>
-                <div class="portfolio-overlay">
-                    <h3 class="portfolio-title">Daily Monitor Publication</h3>
-                    <div class="portfolio-metrics">
-                        <span class="portfolio-metric">National coverage</span>
-                    </div>
-                </div>
-            </a>
-            
-            <!-- Africa News Article -->
-            <a href="https://fr.africanews.com/2024/09/14/ouganda-hello-hub-facilite-lacces-a-internet-pour-les-zones-rurales/" target="_blank" class="portfolio-item">
-                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-blue), var(--brand-pink)); display: flex; align-items: center; justify-content: center;">
-                    <div style="text-align: center; padding: 1rem;">
-                        <h3 style="margin-bottom: 0.5rem;">Africa News Article</h3>
-                        <p>Hello Hub Facilitates Internet Access for Rural Areas</p>
-                    </div>
-                </div>
-                <div class="portfolio-overlay">
-                    <h3 class="portfolio-title">Africa News Publication</h3>
-                    <div class="portfolio-metrics">
-                        <span class="portfolio-metric">Pan-African reach</span>
-                    </div>
-                </div>
-            </a>
-            
-            <!-- Project Documentation -->
+            <!-- UPDATED: Radio Feature - Nebbi District -->
             <div class="portfolio-item">
-                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-pink), var(--brand-purple)); display: flex; align-items: center; justify-content: center;">
-                    <div style="text-align: center; padding: 1rem;">
-                        <h3 style="margin-bottom: 0.5rem;">Project Documentation</h3>
-                        <p>Success Stories & Impact Documentation</p>
-                    </div>
-                </div>
+                <iframe src="https://www.youtube.com/embed/U0o0U4nQh1E" title="Nebbi District LREP Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="portfolio-overlay">
-                    <h3 class="portfolio-title">Impact Documentation</h3>
+                    <h3 class="portfolio-title">Nebbi District LREP Review</h3>
                     <div class="portfolio-metrics">
-                        <span class="portfolio-metric">Storytelling</span>
+                        <span class="portfolio-metric">Radio & Local Gov't</span>
                     </div>
                 </div>
             </div>
@@ -1052,6 +1150,62 @@
         </div>
     </section>
 
+    <!-- NEW: FAQ Section -->
+    <section class="section section-dark" id="faq">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Quick answers to common questions about working with a media consultant.</p>
+        </div>
+        <div style="text-align: center;">
+            <button id="openFaqBtn" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                View Common Questions & Answers
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ Modal -->
+    <div id="faqModal" class="faq-modal">
+        <div class="faq-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 style="margin-bottom: 2rem; color: var(--brand-pink);">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">1. What exactly does a media consultant do?</h3>
+                <div class="faq-answer">
+                    <p>I act as your guide and partner in getting your story out there. This means I help you figure out the most compelling parts of your work, plan how to share it (like through press releases or social media), connect you with the right journalists, and handle all the details of things like press conferences. My goal is to make sure your message is clear, professional, and reaches the people who need to hear it.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">2. How do you measure the success of a media campaign?</h3>
+                <div class="faq-answer">
+                    <p>Success looks different for every project, but we define it together from the start. It could be counting the number of news articles published, tracking a increase in website visitors, measuring growth in your social media followers, or seeing more people attend your events. I provide you with regular reports so you can see the tangible results of our work.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">3. What do I need to prepare for a press conference or major media interview?</h3>
+                <div class="faq-answer">
+                    <p>Don't worry, I'll guide you through every step. We'll work together to create key messages, anticipate questions, and prepare talking points. I can also help with logistical details like the venue, invitations to journalists, and creating media kits. My job is to make sure you feel confident, prepared, and focused on delivering your message.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">4. How is working with you different from hiring a social media manager?</h3>
+                <div class="faq-answer">
+                    <p>While I do manage social media, I offer a bigger picture. A social media manager typically focuses on daily posts and engagement. I create an overall strategy that often combines social media with earned media (getting you featured in news outlets), event promotion, and storytelling. This integrated approach ensures all your communications work together to build a stronger, more credible reputation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">5. What's the first step to working together?</h3>
+                <div class="faq-answer">
+                    <p>It starts with a conversation. We'll schedule a call to discuss your goals, your project, and what you hope to achieve. From there, I'll create a custom plan and quote for you. There's no obligation, and it gives you a clear idea of how we can amplify your impact.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -1076,6 +1230,8 @@
             
             <div class="footer-links">
                 <h4>Connect</h4>
+                <!-- UPDATED: Added main website link -->
+                <a href="https://binomugisha.org">Main Website</a>
                 <a href="https://www.linkedin.com/in/brenda-awori-7578b6141/">LinkedIn</a>
                 <a href="https://twitter.com/brendaaawori">Twitter</a>
                 <a href="https://instagram.com/mrs_binomugisha_brenda">Instagram</a>
@@ -1087,6 +1243,7 @@
                 <h4>Resources</h4>
                 <a href="#portfolio">Media Portfolio</a>
                 <a href="#contact">Get a Quote</a>
+                <a href="#faq">FAQ</a>
                 <a href="https://media.binomugisha.org">Media Consultancy</a>
             </div>
         </div>
@@ -1197,6 +1354,28 @@
         document.querySelectorAll('.service-card, .portfolio-item, .contact-form, .stat-item, .process-step').forEach(el => {
             observer.observe(el);
         });
+
+        // NEW: FAQ Modal Functionality
+        const modal = document.getElementById("faqModal");
+        const btn = document.getElementById("openFaqBtn");
+        const span = document.getElementsByClassName("close-modal")[0];
+
+        // Open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Close the modal when the user clicks on <span> (x)
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close the modal when the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
